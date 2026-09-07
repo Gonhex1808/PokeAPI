@@ -12,7 +12,7 @@ public class PokemonService : IPokemonService
         _httpClient = httpClient;
     }
 
-    public async Task<PokemonResponseDto> GetPokemonByNameorIdAsync(string name)
+    public async Task<PokemonResponseDto?> GetPokemonByNameAsync(string name)
     {
         var url = $"https://pokeapi.co/api/v2/pokemon/{name.ToLower().Trim()}";
         var response = await _httpClient.GetAsync(url);
@@ -27,6 +27,7 @@ public class PokemonService : IPokemonService
             return null;
         return new PokemonResponseDto
         {
+            PokedexNumber = pokemon.Id,
             Name = pokemon.Name,
             Height = pokemon.Height,
             Weight = pokemon.Weight,

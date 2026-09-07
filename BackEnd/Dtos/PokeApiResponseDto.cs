@@ -4,7 +4,6 @@ namespace BackEnd.Dtos;
 
     public class PokeApiResponseDto
     {
-
         [JsonPropertyName("id")]
         public int Id { get; set; }
 

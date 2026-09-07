@@ -1,8 +1,10 @@
+using System.Text.Json.Serialization;
 namespace BackEnd.Dtos;
 
 public class PokemonResponseDto
 {
-    public int Id { get; set; }
+    [JsonPropertyName("pokedexNumber")]
+        public int PokedexNumber { get; set; }
     public string Name { get; set; } = string.Empty;
     public double Height { get; set; }
     public double Weight { get; set; }
