@@ -6,6 +6,6 @@ alteramos apenas aqui.
 """
 
 #API_URL = "http://localhost:5000"
-API_URL = "https://techservice.aulaslab.com"
+API_URL = "https://pokeapi.co/api/v2/"
 
 REQUEST_TIMEOUT = 5
