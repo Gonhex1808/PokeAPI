@@ -1,7 +1,8 @@
-using Sysem.Text.Json;
-using MinhaPokeApi.Dtos;
+using System.Text.Json;
+using BackEnd.Dtos;
+using System.Linq;
 
-namespace MinhaPokeApi.Services;
+namespace BackEnd.Services;
 public class PokemonService : IPokemonService
 {
     private readonly HttpClient _httpClient;
@@ -20,9 +21,9 @@ public class PokemonService : IPokemonService
             return null;
 
         var jsonstring = await response.Content.ReadAsStringAsync();
-        var pokemon = JsonSerializer.Deserialize<PokeApiRespondeDto>(jsonstring);
+        var pokemon = JsonSerializer.Deserialize<PokeApiResponseDto>(jsonstring);
         
-        if (pokeData == null)
+        if (pokemon == null)
             return null;
         return new PokemonResponseDto
         {
@@ -30,7 +31,7 @@ public class PokemonService : IPokemonService
             Height = pokemon.Height,
             Weight = pokemon.Weight,
             BaseExperience = pokemon.BaseExperience,
-            Types = pokemon.Types.Select(t => t.Type.Name).ToList()
+            Types = pokemon.Types?.Select(t => t.Type?.Name ?? "").Where(n => !string.IsNullOrEmpty(n)).ToList() ?? new List<string>()
         };
     }
 }

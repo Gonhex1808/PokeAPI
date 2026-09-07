@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using MinhaPokeApi.Services;
-using System.Net.Http.Json;
+using BackEnd.Services;
 
-namespace MinhaPokeApi.Controllers;
+
+namespace BackEnd.Controllers;
 
 
 [ApiController]
