@@ -13,15 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15636bc7242a1ed1864be4f709d19840cecfbeb2")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efe73a913da0a18332565733d6d8105b68649f92")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58106c819afb77f77b3d01e13ca0ebe40493e647")]
->>>>>>> f4fbb632fa718d184a58a232e00c55958506d16d
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e29d263c11fbf85cac46bae5926643419bb96091")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

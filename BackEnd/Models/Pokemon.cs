@@ -1,9 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-<<<<<<< HEAD
-=======
-using System.ComponentModel.DataAnnotations;
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
 
 namespace BackEnd.Models;
 
@@ -18,8 +14,4 @@ public class Pokemon
     public int BaseExperience { get; set; }
     public string Types { get; set; } = string.Empty;
     public DateTime SavedAt { get; set; } = DateTime.UtcNow;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2

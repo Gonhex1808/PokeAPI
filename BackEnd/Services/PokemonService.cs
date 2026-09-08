@@ -101,13 +101,11 @@ public class PokemonService : IPokemonService
         if (typeData?.Pokemon == null)
             return null;
 
-<<<<<<< HEAD
-  
-    return typeData.Pokemon
-        .Select(p => p.Pokemon?.Name ?? "")
-        .Where(name => !string.IsNullOrEmpty(name))
-        .ToList();
-}
+        return typeData.Pokemon
+            .Select(p => p.Pokemon?.Name ?? "")
+            .Where(name => !string.IsNullOrEmpty(name))
+            .ToList();
+    }
 
     public async Task<List<string>?> GetAllPokemonAsync()
     {
@@ -126,11 +124,3 @@ public class PokemonService : IPokemonService
             .ToList();
     }
 }
-=======
-        return typeData.Pokemon
-            .Select(p => p.Pokemon?.Name ?? "")
-            .Where(name => !string.IsNullOrEmpty(name))
-            .ToList();
-    }
-}
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2

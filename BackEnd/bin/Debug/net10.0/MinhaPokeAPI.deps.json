@@ -8,12 +8,8 @@
     ".NETCoreApp,Version=v10.0": {
       "MinhaPokeAPI/1.0.0": {
         "dependencies": {
-<<<<<<< HEAD
-          "Microsoft.EntityFrameworkCore": "10.0.0",
-=======
           "Microsoft.EntityFrameworkCore": "8.0.0",
           "Microsoft.EntityFrameworkCore.Design": "8.0.0",
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
           "MySqlConnector": "2.6.2",
           "Pomelo.EntityFrameworkCore.MySql": "8.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
@@ -22,24 +18,6 @@
           "MinhaPokeAPI.dll": {}
         }
       },
-<<<<<<< HEAD
-      "Microsoft.EntityFrameworkCore/10.0.0": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "10.0.0"
-        },
-        "runtime": {
-          "lib/net10.0/Microsoft.EntityFrameworkCore.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
-          }
-        }
-      },
-      "Microsoft.EntityFrameworkCore.Abstractions/10.0.0": {
-        "runtime": {
-          "lib/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
-            "assemblyVersion": "10.0.0.0",
-            "fileVersion": "10.0.25.52411"
-=======
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -317,7 +295,6 @@
           "lib/net8.0/Microsoft.Extensions.DependencyModel.dll": {
             "assemblyVersion": "8.0.0.0",
             "fileVersion": "8.0.23.53103"
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
           }
         }
       },
@@ -473,21 +450,6 @@
       "serviceable": false,
       "sha512": ""
     },
-<<<<<<< HEAD
-    "Microsoft.EntityFrameworkCore/10.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hHa2amRjMyBLUH/KTML6FgIAhZ0VFYkhCKwWEax0rO6iNeM1P5MflyeQLE5dniSIOZHc3Oqyv5UIyTFO4e1Auw==",
-      "path": "microsoft.entityframeworkcore/10.0.0",
-      "hashPath": "microsoft.entityframeworkcore.10.0.0.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Abstractions/10.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-C+TT9k7f1GQ8agOfV512K9iwrzi76RXVSDiLx+iWC9pz3QhEpSF1Dyk+FpVvd8ULQ+rqymfM8KQ7g48ttQVyMg==",
-      "path": "microsoft.entityframeworkcore.abstractions/10.0.0",
-      "hashPath": "microsoft.entityframeworkcore.abstractions.10.0.0.nupkg.sha512"
-=======
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -564,7 +526,6 @@
       "sha512": "sha512-NSmDw3K0ozNDgShSIpsZcbFIzBX4w28nDag+TfaQujkXGazBm+lid5onlWoCBy4VsLxqnnKjEBbGSJVWJMf43g==",
       "path": "microsoft.extensions.dependencymodel/8.0.0",
       "hashPath": "microsoft.extensions.dependencymodel.8.0.0.nupkg.sha512"
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
     },
     "Microsoft.OpenApi/1.2.3": {
       "type": "package",
