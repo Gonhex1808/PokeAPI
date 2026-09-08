@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
 using BackEnd.Services;
+using BackEnd.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "Server=localhost;Database=PokeAPI;User=root;Password=;";
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 30))));
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<IPokemonService, PokemonService>();
