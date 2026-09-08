@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BackEnd.Models;
 
-[Table("pokemon")]
+[Table("Pokemon")]
 public class Pokemon
 {
     [Key]

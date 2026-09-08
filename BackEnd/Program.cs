@@ -4,7 +4,8 @@ using BackEnd.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = "Server=localhost;Database=PokeAPI;User=root;Password=;";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("A ligação DefaultConnection não está configurada.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 30))));
