@@ -48,17 +48,24 @@ public async Task<IActionResult> GetPokemonByPokedexNumber(int pokedexNumber)
     [HttpGet("type/{typeName}")]
 public async Task<IActionResult> GetPokemonsByType(string typeName)
 {
-    var pokemonList = await _pokemonService.GetPokemonByTypeAsync(typeName);
+    try
+    {
+        var pokemonList = await _pokemonService.GetPokemonByTypeAsync(typeName);
 
-    if (pokemonList == null || !pokemonList.Any())
-        return NotFound(new { message = $"Nenhum Pokémon encontrado para o tipo '{typeName}'." });
+        if (pokemonList == null || !pokemonList.Any())
+            return NotFound(new { message = $"Nenhum Pokémon encontrado para o tipo '{typeName}'." });
 
-    return Ok(new 
-    { 
-        type = typeName.ToLower(), 
-        count = pokemonList.Count, 
-        pokemons = pokemonList 
-    });
+        return Ok(new 
+        { 
+            type = typeName.ToLower(), 
+            count = pokemonList.Count, 
+            pokemons = pokemonList 
+        });
+    }
+    catch (DatabaseAccessException exception)
+    {
+        return StatusCode(StatusCodes.Status503ServiceUnavailable, new { message = exception.Message });
+    }
 }
 
     [HttpGet("all")]

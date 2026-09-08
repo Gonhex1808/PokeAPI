@@ -24,6 +24,12 @@ form.addEventListener("submit", async (event) => {
       return;
     }
 
+    if (respostaTipo.status !== 404) {
+      const erro = await respostaTipo.json().catch(() => null);
+      mensagem.textContent = erro?.message || "Ocorreu um erro ao consultar a API.";
+      return;
+    }
+
     // Se não for um tipo, procura o mesmo texto como nome de Pokémon.
     const respostaPokemon = await fetch(`${API_URL}/name/${encodeURIComponent(pesquisa)}`);
 

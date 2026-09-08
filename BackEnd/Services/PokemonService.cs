@@ -81,8 +81,14 @@ public class PokemonService : IPokemonService
 
         try
         {
-            _context.Pokemon.Add(entity);
-            await _context.SaveChangesAsync();
+            // O ID é a chave primária: só inserimos se o Pokémon ainda não foi guardado.
+            var pokemonJaExiste = await _context.Pokemon.AnyAsync(p => p.Id == entity.Id);
+
+            if (!pokemonJaExiste)
+            {
+                _context.Pokemon.Add(entity);
+                await _context.SaveChangesAsync();
+            }
         }
         catch (MySqlException exception)
         {
@@ -122,10 +128,18 @@ public class PokemonService : IPokemonService
         if (typeData?.Pokemon == null)
             return null;
 
-        return typeData.Pokemon
+        var pokemonNames = typeData.Pokemon
             .Select(p => p.Pokemon?.Name ?? "")
             .Where(name => !string.IsNullOrEmpty(name))
             .ToList();
+
+        // Cada nome é consultado e guardado apenas se ainda não existir na base de dados.
+        foreach (var pokemonName in pokemonNames)
+        {
+            await GetPokemonByNameAsync(pokemonName);
+        }
+
+        return pokemonNames;
     }
 
     public async Task<List<string>?> GetAllPokemonAsync()
