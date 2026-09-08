@@ -47,7 +47,10 @@ form.addEventListener("submit", async (event) => {
 function mostrarLista(nomes) {
   nomes.forEach((nome) => {
     const item = document.createElement("li");
-    item.textContent = nome;
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.textContent = nome;
+    item.appendChild(botao);
     listaPokemon.appendChild(item);
   });
 }

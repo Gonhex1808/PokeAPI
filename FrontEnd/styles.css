@@ -88,12 +88,16 @@ button:hover {
   list-style: none;
 }
 
-.lista-pokemon li {
+.lista-pokemon button {
+  width: 100%;
   padding: 10px;
-  border-radius: 6px;
   background: #fee2e2;
-  text-align: center;
+  color: var(--texto);
   text-transform: capitalize;
+}
+
+.lista-pokemon button:hover {
+  background: #fecaca;
 }
 
 @media (max-width: 480px) {
