@@ -52,3 +52,9 @@ public class NamedApiResourceDto
     [JsonPropertyName("name")]
     public string Name { get; set; } = string.Empty;
 }
+
+public class PokeApiPokemonListResponseDto
+{
+    [JsonPropertyName("results")]
+    public List<NamedApiResourceDto>? Results { get; set; }
+}

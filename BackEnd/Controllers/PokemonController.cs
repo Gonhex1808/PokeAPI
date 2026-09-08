@@ -38,7 +38,7 @@ public async Task<IActionResult> GetPokemonByPokedexNumber(int pokedexNumber)
 
     return Ok(pokemon);
 }
-[HttpGet("type/{typeName}")]
+    [HttpGet("type/{typeName}")]
 public async Task<IActionResult> GetPokemonsByType(string typeName)
 {
     var pokemonList = await _pokemonService.GetPokemonByTypeAsync(typeName);
@@ -53,4 +53,15 @@ public async Task<IActionResult> GetPokemonsByType(string typeName)
         pokemons = pokemonList 
     });
 }
+
+    [HttpGet("all")]
+    public async Task<IActionResult> GetAllPokemon()
+    {
+        var pokemonList = await _pokemonService.GetAllPokemonAsync();
+
+        if (pokemonList == null)
+            return NotFound(new { message = "Não foi possível obter a lista de Pokémon." });
+
+        return Ok(new { count = pokemonList.Count, pokemons = pokemonList });
+    }
 }

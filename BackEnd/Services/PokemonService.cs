@@ -58,4 +58,21 @@ public class PokemonService : IPokemonService
         .Where(name => !string.IsNullOrEmpty(name))
         .ToList();
 }
+
+    public async Task<List<string>?> GetAllPokemonAsync()
+    {
+        var response = await _httpClient.GetAsync("https://pokeapi.co/api/v2/pokemon?limit=2000");
+
+        if (!response.IsSuccessStatusCode)
+            return null;
+
+        var jsonString = await response.Content.ReadAsStringAsync();
+        var pokemonData = JsonSerializer.Deserialize<PokeApiPokemonListResponseDto>(jsonString);
+
+        return pokemonData?.Results?
+            .Select(p => p.Name)
+            .Where(name => !string.IsNullOrEmpty(name))
+            .OrderBy(name => name)
+            .ToList();
+    }
 }

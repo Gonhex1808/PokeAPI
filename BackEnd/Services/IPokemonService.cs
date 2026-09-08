@@ -6,4 +6,5 @@ public interface IPokemonService
 {
     Task<PokemonResponseDto?> GetPokemonByNameAsync(string name);
     Task<List<string>?> GetPokemonByTypeAsync(string typeName);
+    Task<List<string>?> GetAllPokemonAsync();
 }

@@ -39,6 +39,24 @@ form.addEventListener("submit", async (event) => {
   }
 });
 
+async function carregarTodosPokemon() {
+  mensagem.textContent = "A carregar todos os Pokémon...";
+
+  try {
+    const resposta = await fetch(`${API_URL}/all`);
+
+    if (!resposta.ok) {
+      throw new Error("Lista não encontrada");
+    }
+
+    const dados = await resposta.json();
+    mensagem.textContent = `${dados.count} Pokémons carregados:`;
+    mostrarLista(dados.pokemons);
+  } catch (erro) {
+    mensagem.textContent = "Não foi possível carregar a lista de Pokémon.";
+  }
+}
+
 function mostrarLista(nomes) {
   nomes.forEach((nome) => {
     const item = document.createElement("li");
@@ -52,3 +70,5 @@ function mostrarLista(nomes) {
     listaPokemon.appendChild(item);
   });
 }
+
+carregarTodosPokemon();

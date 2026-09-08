@@ -72,3 +72,5 @@ C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\obj\Debug\net10
 C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\obj\Debug\net10.0\MinhaPokeAPI.pdb
 C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\obj\Debug\net10.0\MinhaPokeAPI.genruntimeconfig.cache
 C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\obj\Debug\net10.0\ref\MinhaPokeAPI.dll
+C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\mario\Desktop\repository\course\pokedex\PokeAPI\BackEnd\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
