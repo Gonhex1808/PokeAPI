@@ -13,23 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e29d263c11fbf85cac46bae5926643419bb96091")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+509c8e941f1ae619f266a191c9f54afc667f9503")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+15636bc7242a1ed1864be4f709d19840cecfbeb2")]
-=======
-<<<<<<< HEAD
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efe73a913da0a18332565733d6d8105b68649f92")]
-=======
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58106c819afb77f77b3d01e13ca0ebe40493e647")]
->>>>>>> f4fbb632fa718d184a58a232e00c55958506d16d
->>>>>>> 0fec20c3ceec7ca8aaf4d3a698de48f213cf11a2
->>>>>>> e29d263c11fbf85cac46bae5926643419bb96091
->>>>>>> f9f68a11c522a7eb7f4a78b095fce5ce18bf2a82
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f132186dad094718a967121c7d096455fa847de6")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

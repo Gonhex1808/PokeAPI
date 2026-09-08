@@ -19,12 +19,19 @@ public class PokemonController : ControllerBase
     [HttpGet("name/{name}")]
     public async Task<IActionResult> GetPokemonByName(string name)
     {
-        var pokemon = await _pokemonService.GetPokemonByNameAsync(name);
+        try
+        {
+            var pokemon = await _pokemonService.GetPokemonByNameAsync(name);
 
-        if (pokemon == null)
-            return NotFound();
+            if (pokemon == null)
+                return NotFound(new { message = $"Não foi encontrado nenhum Pokémon com o nome '{name}'." });
 
-        return Ok(pokemon);
+            return Ok(pokemon);
+        }
+        catch (DatabaseAccessException exception)
+        {
+            return StatusCode(StatusCodes.Status503ServiceUnavailable, new { message = exception.Message });
+        }
     }
 
     // Endpoint: GET api/pokemon/pokedex/25

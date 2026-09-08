@@ -27,15 +27,22 @@ form.addEventListener("submit", async (event) => {
     // Se não for um tipo, procura o mesmo texto como nome de Pokémon.
     const respostaPokemon = await fetch(`${API_URL}/name/${encodeURIComponent(pesquisa)}`);
 
+    if (respostaPokemon.status === 404) {
+      mensagem.textContent = "Não foi encontrado nenhum Pokémon ou tipo com esse nome. Verifica a escrita.";
+      return;
+    }
+
     if (!respostaPokemon.ok) {
-      throw new Error("Pesquisa não encontrada");
+      const erro = await respostaPokemon.json().catch(() => null);
+      mensagem.textContent = erro?.message || "Ocorreu um erro ao consultar a API.";
+      return;
     }
 
     const pokemon = await respostaPokemon.json();
     mensagem.textContent = "Pokémon encontrado:";
     mostrarLista([pokemon.name]);
   } catch (erro) {
-    mensagem.textContent = "Não foi encontrado um Pokémon nem um tipo com esse nome.";
+    mensagem.textContent = "Não foi possível ligar à API.";
   }
 });
 

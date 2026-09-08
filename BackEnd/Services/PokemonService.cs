@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using MySqlConnector;
 using BackEnd.Data;
 using BackEnd.Dtos;
 using BackEnd.Models;
@@ -26,8 +27,17 @@ public class PokemonService : IPokemonService
         var cleanName = name.ToLower().Trim();
 
         // 1. Pesquisa na Base de Dados local por Nome ou ID (PokedexNumber)
-        var dbPokemon = await _context.Pokemon
-            .FirstOrDefaultAsync(p => p.Name == cleanName || p.Id.ToString() == cleanName);
+        BackEnd.Models.Pokemon? dbPokemon;
+
+        try
+        {
+            dbPokemon = await _context.Pokemon
+                .FirstOrDefaultAsync(p => p.Name == cleanName || p.Id.ToString() == cleanName);
+        }
+        catch (MySqlException exception)
+        {
+            throw new DatabaseAccessException("Não foi possível consultar a base de dados.", exception);
+        }
 
         if (dbPokemon != null)
         {
@@ -69,8 +79,19 @@ public class PokemonService : IPokemonService
             SavedAt = DateTime.UtcNow
         };
 
-        _context.Pokemon.Add(entity);
-        await _context.SaveChangesAsync();
+        try
+        {
+            _context.Pokemon.Add(entity);
+            await _context.SaveChangesAsync();
+        }
+        catch (MySqlException exception)
+        {
+            throw new DatabaseAccessException("Não foi possível guardar o Pokémon na base de dados.", exception);
+        }
+        catch (DbUpdateException exception)
+        {
+            throw new DatabaseAccessException("Não foi possível guardar o Pokémon na base de dados.", exception);
+        }
 
         // 4. Retorna a resposta final formatada
         return new PokemonResponseDto
