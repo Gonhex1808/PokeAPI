@@ -50,6 +50,9 @@ function mostrarLista(nomes) {
     const botao = document.createElement("button");
     botao.type = "button";
     botao.textContent = nome;
+    botao.addEventListener("click", () => {
+      window.location.href = `pokemon.html?name=${encodeURIComponent(nome)}`;
+    });
     item.appendChild(botao);
     listaPokemon.appendChild(item);
   });

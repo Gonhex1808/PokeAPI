@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhe do Pokémon</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="pagina">
+    <a class="voltar" href="index.html">← Voltar à pesquisa</a>
+    <h1 id="nome-pokemon">A carregar...</h1>
+    <p id="mensagem" class="mensagem" aria-live="polite">A procurar informação.</p>
+
+    <section id="detalhes" class="detalhes" hidden>
+      <div class="campo">
+        <span>Número na Pokédex</span>
+        <strong id="numero"></strong>
+      </div>
+      <div class="campo">
+        <span>Altura</span>
+        <strong id="altura"></strong>
+      </div>
+      <div class="campo">
+        <span>Peso</span>
+        <strong id="peso"></strong>
+      </div>
+      <div class="campo">
+        <span>Experiência base</span>
+        <strong id="experiencia"></strong>
+      </div>
+      <div class="campo campo-completo">
+        <span>Tipos</span>
+        <strong id="tipos"></strong>
+      </div>
+    </section>
+  </main>
+
+  <script src="pokemon.js"></script>
+</body>
+</html>
