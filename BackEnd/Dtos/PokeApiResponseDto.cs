@@ -4,7 +4,6 @@ namespace BackEnd.Dtos;
 
     public class PokeApiResponseDto
     {
-
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
@@ -21,10 +20,10 @@ namespace BackEnd.Dtos;
         public int BaseExperience { get; set; }
 
         [JsonPropertyName("types")]
-        public List<PokemonTypeDto> Types { get; set; }
+        public List<PokemonTypeContainerDto> Types { get; set; }
     }
 
-    public class PokemonTypeDto
+    public class PokemonTypeContainerDto
     {
         [JsonPropertyName("type")]
         public TypeInfoDto Type { get; set; }
@@ -35,3 +34,21 @@ namespace BackEnd.Dtos;
         [JsonPropertyName("name")]
         public string Name { get; set; }
     }
+
+    public class PokeApiTypeResponseDto
+{
+    [JsonPropertyName("pokemon")]
+    public List<TypePokemonEntryDto>? Pokemon { get; set; }
+}
+
+public class TypePokemonEntryDto
+{
+    [JsonPropertyName("pokemon")]
+    public NamedApiResourceDto? Pokemon { get; set; }
+}
+
+public class NamedApiResourceDto
+{
+    [JsonPropertyName("name")]
+    public string Name { get; set; } = string.Empty;
+}

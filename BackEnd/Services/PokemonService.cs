@@ -12,7 +12,7 @@ public class PokemonService : IPokemonService
         _httpClient = httpClient;
     }
 
-    public async Task<PokemonResponseDto> GetPokemonByNameorIdAsync(string name)
+    public async Task<PokemonResponseDto?> GetPokemonByNameAsync(string name)
     {
         var url = $"https://pokeapi.co/api/v2/pokemon/{name.ToLower().Trim()}";
         var response = await _httpClient.GetAsync(url);
@@ -27,6 +27,7 @@ public class PokemonService : IPokemonService
             return null;
         return new PokemonResponseDto
         {
+            PokedexNumber = pokemon.Id,
             Name = pokemon.Name,
             Height = pokemon.Height,
             Weight = pokemon.Weight,
@@ -34,4 +35,27 @@ public class PokemonService : IPokemonService
             Types = pokemon.Types?.Select(t => t.Type?.Name ?? "").Where(n => !string.IsNullOrEmpty(n)).ToList() ?? new List<string>()
         };
     }
+    public async Task<List<string>?> GetPokemonByTypeAsync(string typeName)
+{
+    if (string.IsNullOrWhiteSpace(typeName))
+        return null;
+
+    var url = $"https://pokeapi.co/api/v2/type/{typeName.ToLower().Trim()}";
+    var response = await _httpClient.GetAsync(url);
+
+    if (!response.IsSuccessStatusCode)
+        return null;
+
+    var jsonString = await response.Content.ReadAsStringAsync();
+    var typeData = JsonSerializer.Deserialize<PokeApiTypeResponseDto>(jsonString);
+
+    if (typeData?.Pokemon == null)
+        return null;
+
+  
+    return typeData.Pokemon
+        .Select(p => p.Pokemon?.Name ?? "")
+        .Where(name => !string.IsNullOrEmpty(name))
+        .ToList();
+}
 }

@@ -1,6 +1,9 @@
 using BackEnd.Dtos;
+
 namespace BackEnd.Services;
+
 public interface IPokemonService
 {
-    Task<PokemonResponseDto> GetPokemonByNameorIdAsync(string name);
+    Task<PokemonResponseDto?> GetPokemonByNameAsync(string name);
+    Task<List<string>?> GetPokemonByTypeAsync(string typeName);
 }
