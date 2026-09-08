@@ -38,4 +38,19 @@ public async Task<IActionResult> GetPokemonByPokedexNumber(int pokedexNumber)
 
     return Ok(pokemon);
 }
+[HttpGet("type/{typeName}")]
+public async Task<IActionResult> GetPokemonsByType(string typeName)
+{
+    var pokemonList = await _pokemonService.GetPokemonByTypeAsync(typeName);
+
+    if (pokemonList == null || !pokemonList.Any())
+        return NotFound(new { message = $"Nenhum Pokémon encontrado para o tipo '{typeName}'." });
+
+    return Ok(new 
+    { 
+        type = typeName.ToLower(), 
+        count = pokemonList.Count, 
+        pokemons = pokemonList 
+    });
+}
 }

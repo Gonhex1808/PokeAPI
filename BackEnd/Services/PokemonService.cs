@@ -35,4 +35,27 @@ public class PokemonService : IPokemonService
             Types = pokemon.Types?.Select(t => t.Type?.Name ?? "").Where(n => !string.IsNullOrEmpty(n)).ToList() ?? new List<string>()
         };
     }
+    public async Task<List<string>?> GetPokemonByTypeAsync(string typeName)
+{
+    if (string.IsNullOrWhiteSpace(typeName))
+        return null;
+
+    var url = $"https://pokeapi.co/api/v2/type/{typeName.ToLower().Trim()}";
+    var response = await _httpClient.GetAsync(url);
+
+    if (!response.IsSuccessStatusCode)
+        return null;
+
+    var jsonString = await response.Content.ReadAsStringAsync();
+    var typeData = JsonSerializer.Deserialize<PokeApiTypeResponseDto>(jsonString);
+
+    if (typeData?.Pokemon == null)
+        return null;
+
+  
+    return typeData.Pokemon
+        .Select(p => p.Pokemon?.Name ?? "")
+        .Where(name => !string.IsNullOrEmpty(name))
+        .ToList();
+}
 }
