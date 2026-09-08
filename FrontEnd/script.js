@@ -32,13 +32,8 @@ form.addEventListener("submit", async (event) => {
     }
 
     const pokemon = await respostaPokemon.json();
-    mensagem.textContent = `Pokémon encontrado: ${pokemon.name}`;
-    mostrarLista([
-      `N.º ${pokemon.pokedexNumber}`,
-      `Altura: ${pokemon.height}`,
-      `Peso: ${pokemon.weight}`,
-      `Tipos: ${pokemon.types.join(", ")}`
-    ]);
+    mensagem.textContent = "Pokémon encontrado:";
+    mostrarLista([pokemon.name]);
   } catch (erro) {
     mensagem.textContent = "Não foi encontrado um Pokémon nem um tipo com esse nome.";
   }
