@@ -1,10 +1,23 @@
+using Microsoft.EntityFrameworkCore;
 using BackEnd.Services;
+using BackEnd.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = "Server=localhost;Database=PokeAPI;User=root;Password=;";
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 30))));
 
 builder.Services.AddControllers();
 builder.Services.AddHttpClient<IPokemonService, PokemonService>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("FrontendLocal", policy =>
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -19,6 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("FrontendLocal");
 app.UseAuthorization();
 app.MapControllers();
 

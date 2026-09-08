@@ -1,0 +1,150 @@
+/* Cores usadas em toda a página. */
+:root {
+  --vermelho: #dc2626;
+  --vermelho-escuro: #b91c1c;
+  --fundo: #f4f4f5;
+  --texto: #27272a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, sans-serif;
+}
+
+/* Cartão principal da aplicação. */
+.pagina {
+  width: min(100%, 680px);
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+}
+
+h1 {
+  margin: 0;
+  color: var(--vermelho);
+}
+
+.subtitulo {
+  margin: 8px 0 28px;
+}
+
+.pesquisa label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.linha-pesquisa {
+  display: flex;
+  gap: 10px;
+}
+
+input,
+button {
+  border-radius: 6px;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #a1a1aa;
+}
+
+button {
+  padding: 10px 18px;
+  border: 0;
+  background: var(--vermelho);
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--vermelho-escuro);
+}
+
+.mensagem {
+  margin: 24px 0 12px;
+}
+
+/* A lista adapta-se automaticamente ao espaço disponível. */
+.lista-pokemon {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-pokemon button {
+  width: 100%;
+  padding: 10px;
+  background: #fee2e2;
+  color: var(--texto);
+  text-transform: capitalize;
+}
+
+.lista-pokemon button:hover {
+  background: #fecaca;
+}
+
+.voltar {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--vermelho);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.detalhes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.campo {
+  padding: 16px;
+  border-radius: 6px;
+  background: #fee2e2;
+}
+
+.campo span,
+.campo strong {
+  display: block;
+}
+
+.campo span {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.campo-completo {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 480px) {
+  .pagina {
+    padding: 24px;
+  }
+
+  .linha-pesquisa {
+    flex-direction: column;
+  }
+
+  .detalhes {
+    grid-template-columns: 1fr;
+  }
+}
