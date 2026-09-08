@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mario\\Desktop\\repository\\course\\pokedex\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj": {}
+    "C:\\Users\\diogo\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mario\\Desktop\\repository\\course\\pokedex\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj": {
+    "C:\\Users\\diogo\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mario\\Desktop\\repository\\course\\pokedex\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj",
+        "projectUniqueName": "C:\\Users\\diogo\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj",
         "projectName": "MinhaPokeAPI",
-        "projectPath": "C:\\Users\\mario\\Desktop\\repository\\course\\pokedex\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj",
-        "packagesPath": "C:\\Users\\mario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mario\\Desktop\\repository\\course\\pokedex\\PokeAPI\\BackEnd\\obj\\",
+        "projectPath": "C:\\Users\\diogo\\PokeAPI\\BackEnd\\MinhaPokeAPI.csproj",
+        "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\diogo\\PokeAPI\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mario\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"

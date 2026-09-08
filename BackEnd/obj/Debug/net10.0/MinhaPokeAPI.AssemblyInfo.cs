@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f132186dad094718a967121c7d096455fa847de6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ec1782b66129fb07c4a5a0f59f5f990bf7608a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MinhaPokeAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
